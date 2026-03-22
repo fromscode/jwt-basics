@@ -14,6 +14,7 @@ async function main() {
 
   const verify = createVerify("SHA256");
   verify.write(`${headerENC}.${payloadENC}`);
+  verify.end();
   const isVerified = verify.verify(publicKey, sigENC, "base64url");
 
   if (isVerified) console.log("Signature is verified");
