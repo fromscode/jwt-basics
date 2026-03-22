@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 import jwt from "./issueJWT.js";
-import secret from "./secret.js";
+import secret from "../secret.js";
 
 const jwtArr = jwt.split(".");
 const header = jwtArr[0] as string;

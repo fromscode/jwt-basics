@@ -1,5 +1,5 @@
-import data from "./data.js";
-import secret from "./secret.js";
+import data from "../data.js";
+import secret from "../secret.js";
 import { Buffer } from "node:buffer";
 import { createHmac } from "node:crypto";
 
