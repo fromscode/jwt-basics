@@ -15,8 +15,8 @@ const payloadStringDecoded = Buffer.from(payload, "base64url").toString(
 const headerObj = JSON.parse(headerStringDecoded);
 const payloadObj = JSON.parse(payloadStringDecoded);
 
-console.log(headerObj); // the actual header
-console.log(payloadObj); // the actual payload
+console.log("header: ", headerObj); // the actual header
+console.log("data:", payloadObj); // the actual payload
 
 const hmac = createHmac("sha256", secret);
 hmac.update(header + "." + payload);
@@ -24,3 +24,7 @@ const generatedSignature = hmac.digest("base64url");
 
 if (signature === generatedSignature) console.log("Signature is verified");
 else console.log("Signature is not verified");
+
+if (payloadObj.exp < Math.floor(Date.now() / 1000)) {
+  console.log("Token is expired");
+}
