@@ -1,8 +1,6 @@
 import { generateKeyPair } from "node:crypto";
 import { writeFile } from "node:fs/promises";
 
-console.log(import.meta.dirname);
-
 generateKeyPair(
   "rsa",
   {
@@ -15,7 +13,7 @@ generateKeyPair(
       type: "pkcs8",
       format: "pem",
       cipher: "aes-256-cbc",
-      passphrase: "top secret",
+      passphrase: "swan",
     },
   },
   async (err, publicKey, privateKey) => {
